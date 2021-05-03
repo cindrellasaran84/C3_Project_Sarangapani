@@ -61,4 +61,8 @@ public class Restaurant {
     public String getName() {
         return name;
     }
+
+    public int calculateTotalCost() {
+        return 0;
+    }
 }

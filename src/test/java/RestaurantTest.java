@@ -77,4 +77,18 @@ class RestaurantTest {
                 ()->restaurant.removeFromMenu("French fries"));
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    //>>>>>>>>>>>>>>>>>>>>>>ORDERS<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    @Test
+    public void select_items_from_menu_should_return_total_order_cost() {
+        //arrange
+        addMenu();
+        //act
+        List<String> selectedItems = new ArrayList<>();
+        selectedItems.add("Chocolate Fudge");
+        selectedItems.add("Tuna Sandwich");
+        int totalCost = restaurant.calculateTotalCost();
+        //assert
+        assertEquals(500, totalCost);
+    }
+    //>>>>>>>>>>>>>>>>>>>>>>ORDERS<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 }

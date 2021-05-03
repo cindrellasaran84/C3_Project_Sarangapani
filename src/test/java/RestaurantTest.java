@@ -79,16 +79,30 @@ class RestaurantTest {
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
     //>>>>>>>>>>>>>>>>>>>>>>ORDERS<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     @Test
-    public void select_items_from_menu_should_return_total_order_cost() {
+    public void select_2_items_from_menu_with_price_200_and_300_should_return_total_order_cost_500() throws restaurantNotFoundException {
         //arrange
         addMenu();
         //act
         List<String> selectedItems = new ArrayList<>();
         selectedItems.add("Chocolate Fudge");
         selectedItems.add("Tuna Sandwich");
-        int totalCost = restaurant.calculateTotalCost();
+        int totalCost = restaurant.calculateTotalCost(selectedItems);
         //assert
         assertEquals(500, totalCost);
+    }
+
+    @Test
+    public void select_3_items_from_menu_with_price_119_and_269_and_200_should_return_total_order_cost_588() throws restaurantNotFoundException {
+        //arrange
+        addMenu();
+        //act
+        List<String> selectedItems = new ArrayList<>();
+        selectedItems.add("Sweet corn soup");
+        selectedItems.add("Vegetable lasagne");
+        selectedItems.add("Chocolate Fudge");
+        int totalCost = restaurant.calculateTotalCost(selectedItems);
+        //assert
+        assertEquals(588, totalCost);
     }
     //>>>>>>>>>>>>>>>>>>>>>>ORDERS<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 }
